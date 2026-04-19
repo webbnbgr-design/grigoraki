@@ -92,10 +92,19 @@ export default function App() {
       <main>
         {/* Hero Section */}
         <section id="home" className="relative h-screen flex items-center overflow-hidden bg-legal-navy">
-          <div className="absolute inset-0 bg-linear-to-br from-legal-navy via-legal-navy/95 to-legal-navy/90"></div>
+          {/* Enhanced Background Image */}
+          <div className="absolute inset-0 z-0">
+            <img 
+              src="https://picsum.photos/seed/legal-hero/1920/1080?grayscale" 
+              alt="Professional Legal Environment" 
+              className="w-full h-full object-cover opacity-30 scale-105"
+              referrerPolicy="no-referrer"
+            />
+            <div className="absolute inset-0 bg-linear-to-b from-legal-navy/80 via-legal-navy/95 to-legal-navy"></div>
+          </div>
           
           {/* Subtle Decorative Grid Pattern */}
-          <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle, #947133 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
+          <div className="absolute inset-0 opacity-[0.03] z-0" style={{ backgroundImage: 'radial-gradient(circle, #947133 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
 
           <div className="relative z-10 max-w-7xl mx-auto px-6 w-full pt-20">
             <motion.div
@@ -113,7 +122,7 @@ export default function App() {
                 Με συνέπεια και επαγγελματισμό, παρέχουμε ολοκληρωμένες νομικές υπηρεσίες, εστιάζοντας στην αποτελεσματική επίλυση των υποθέσεών σας.
               </p>
               <div className="flex flex-col sm:flex-row gap-6">
-                <a href="#ktimatologio" className="bg-legal-gold text-white px-10 py-5 text-sm uppercase tracking-widest font-semibold hover:bg-white hover:text-legal-navy transition-all duration-500 text-center">
+                <a href="#ktimatologio" className="bg-legal-gold text-white px-10 py-5 text-sm uppercase tracking-widest font-semibold hover:bg-white hover:text-legal-navy transition-all duration-500 text-center shadow-lg shadow-legal-gold/10">
                   Κτηματολόγιο & Ακίνητα
                 </a>
                 <a href="#contact" className="border border-white/30 text-white px-10 py-5 text-sm uppercase tracking-widest font-semibold hover:bg-white/10 transition-all duration-500 text-center">
@@ -184,9 +193,14 @@ export default function App() {
         <section id="ktimatologio" className="section-padding bg-white overflow-hidden">
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             <div className="relative aspect-square md:aspect-video lg:aspect-auto lg:h-[600px] bg-legal-cream border border-legal-navy/5 flex items-center justify-center overflow-hidden group">
-              <div className="absolute inset-0 opacity-[0.05]" style={{ backgroundImage: 'linear-gradient(45deg, #0f172a 25%, transparent 25%, transparent 50%, #0f172a 50%, #0f172a 75%, transparent 75%, transparent)', backgroundSize: '20px 20px' }}></div>
-              <Building2 size={120} className="text-legal-gold/20 group-hover:scale-110 transition-transform duration-700" />
-              <div className="absolute -top-10 -left-10 w-40 h-40 border border-legal-gold/20 -z-10 bg-legal-cream"></div>
+              <img 
+                src="https://picsum.photos/seed/ktimatologio/1000/1200?grayscale" 
+                alt="Land and Property Architecture" 
+                className="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:opacity-40 transition-opacity duration-700 blur-[2px] group-hover:blur-0"
+                referrerPolicy="no-referrer"
+              />
+              <Building2 size={120} className="relative z-10 text-legal-gold/40 group-hover:text-legal-gold/60 transition-colors duration-700" />
+              <div className="absolute -top-10 -left-10 w-40 h-40 border border-legal-gold/20 -z-0 bg-legal-cream"></div>
             </div>
             <div>
               <span className="text-legal-gold uppercase tracking-widest text-xs font-bold block mb-4">Εξειδίκευση</span>
@@ -213,8 +227,16 @@ export default function App() {
         </section>
 
         {/* Deep Dive: Οικογενειακό Δίκαιο */}
-        <section id="family" className="section-padding bg-legal-navy text-white overflow-hidden">
-          <div className="max-w-7xl mx-auto flex flex-col items-center text-center lg:text-left lg:flex-row gap-20">
+        <section id="family" className="section-padding bg-legal-navy text-white overflow-hidden relative">
+          <div className="absolute inset-0 opacity-10">
+            <img 
+              src="https://picsum.photos/seed/legal-library/1920/1080?grayscale&blur=5" 
+              alt="Legal Library Background" 
+              className="w-full h-full object-cover"
+              referrerPolicy="no-referrer"
+            />
+          </div>
+          <div className="max-w-7xl mx-auto flex flex-col items-center text-center lg:text-left lg:flex-row gap-20 relative z-10">
             <div className="lg:w-1/2">
               <span className="text-legal-gold uppercase tracking-widest text-xs font-bold block mb-4">Ανθρωποκεντρική Προσέγγιση</span>
               <h2 className="text-4xl md:text-5xl mb-8 leading-tight italic text-white font-serif">Οικογενειακό <br /><span className="not-italic text-legal-gold">Δίκαιο</span></h2>
@@ -230,15 +252,21 @@ export default function App() {
                   'Περιουσιακές Διαφορές Συζύγων',
                   'Υιοθεσίες & Αναγνώριση Τέκνων'
                 ].map((item, idx) => (
-                  <div key={idx} className="bg-white/5 p-4 border border-white/10 text-sm italic font-serif">
+                  <div key={idx} className="bg-white/5 p-4 border border-white/10 text-sm italic font-serif backdrop-blur-sm">
                     {item}
                   </div>
                 ))}
               </div>
             </div>
             <div className="lg:w-1/2 w-full flex justify-center">
-              <div className="w-full aspect-square max-w-md bg-white/5 border border-white/10 flex items-center justify-center relative rotate-3 hover:rotate-0 transition-transform duration-700">
-                 <Users2 size={100} className="text-legal-gold/20" />
+              <div className="w-full aspect-square max-w-md bg-white/5 border border-white/10 flex items-center justify-center relative rotate-3 hover:rotate-0 transition-transform duration-700 overflow-hidden">
+                 <img 
+                  src="https://picsum.photos/seed/scale-justice/800/800?grayscale" 
+                  alt="Scale of Justice" 
+                  className="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:opacity-40 transition-opacity"
+                  referrerPolicy="no-referrer"
+                 />
+                 <Users2 size={100} className="relative z-10 text-legal-gold/30" />
                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 border border-legal-gold/5 rounded-full"></div>
               </div>
             </div>
@@ -246,8 +274,16 @@ export default function App() {
         </section>
 
         {/* Deep Dive: Διαμεσολάβηση */}
-        <section id="mediation" className="section-padding bg-legal-cream">
-          <div className="max-w-4xl mx-auto text-center">
+        <section id="mediation" className="section-padding bg-legal-cream relative overflow-hidden">
+          <div className="absolute right-0 top-0 w-1/3 h-full opacity-[0.03] pointer-events-none">
+            <img 
+              src="https://picsum.photos/seed/mediation/800/1200?grayscale" 
+              alt="Mediation Environment" 
+              className="w-full h-full object-cover"
+              referrerPolicy="no-referrer"
+            />
+          </div>
+          <div className="max-w-4xl mx-auto text-center relative z-10">
             <span className="text-legal-gold uppercase tracking-widest text-xs font-bold block mb-4">Εναλλακτική Επίλυση Διαφορών</span>
             <h2 className="text-4xl md:text-5xl mb-8 leading-tight font-serif italic">Διαμεσολάβηση</h2>
             <div className="w-20 h-0.5 bg-legal-gold mx-auto mb-10"></div>
@@ -260,7 +296,7 @@ export default function App() {
                 { title: 'Εχεμύθεια', desc: 'Η διαδικασία είναι απόρρητη και προστατεύει την ιδιωτικότητα των μελών.' },
                 { title: 'Έλεγχος', desc: 'Τα μέρη αποφασίζουν τα ίδια για το μέλλον της διαφοράς τους.' }
               ].map((benefit, idx) => (
-                <div key={idx} className="bg-white border border-legal-navy/5 p-8">
+                <div key={idx} className="bg-white border border-legal-navy/5 p-8 shadow-sm hover:shadow-md transition-shadow">
                   <h4 className="text-legal-gold font-bold uppercase tracking-widest text-xs mb-3">{benefit.title}</h4>
                   <p className="text-legal-slate text-sm leading-relaxed">{benefit.desc}</p>
                 </div>
@@ -334,7 +370,7 @@ export default function App() {
               </div>
             </div>
 
-            <div className="bg-legal-navy text-white flex flex-col justify-center overflow-hidden">
+            <div className="bg-legal-navy text-white flex flex-col justify-center overflow-hidden shadow-2xl">
               <div className="p-12 pb-0">
                 <h3 className="text-3xl font-serif mb-8 text-legal-gold italic">Το Γραφείο μας</h3>
                 <p className="text-white/70 leading-relaxed mb-10 font-light text-lg italic">
@@ -343,15 +379,17 @@ export default function App() {
               </div>
               <div className="relative aspect-video w-full mt-auto group overflow-hidden">
                 <img 
-                  src="https://picsum.photos/seed/law-office/1200/800?grayscale" 
+                  src="https://picsum.photos/seed/legal-office-interior/1200/800?grayscale" 
                   alt="Professional Law Office Interior" 
-                  className="w-full h-full object-cover opacity-50 group-hover:opacity-80 transition-opacity duration-700"
+                  className="w-full h-full object-cover opacity-40 group-hover:opacity-70 transition-opacity duration-700"
                   referrerPolicy="no-referrer"
                 />
-                <div className="absolute inset-0 bg-legal-navy/30 group-hover:bg-transparent transition-colors duration-700"></div>
-                <div className="absolute bottom-6 left-6 z-10 flex items-center gap-3">
-                  <MapPin size={20} className="text-legal-gold" />
-                  <span className="uppercase tracking-[0.2em] text-xs font-semibold text-white/80">Πεδιάδος 26, Ηράκλειο</span>
+                <div className="absolute inset-0 bg-legal-navy/40 group-hover:bg-transparent transition-colors duration-700"></div>
+                <div className="absolute bottom-10 left-10 z-10 flex items-center gap-4">
+                  <div className="w-10 h-10 rounded-full border border-legal-gold/30 flex items-center justify-center text-legal-gold bg-legal-navy/50 backdrop-blur-md">
+                    <MapPin size={18} />
+                  </div>
+                  <span className="uppercase tracking-[0.3em] text-xs font-semibold text-white">Πεδιάδος 26, Ηράκλειο</span>
                 </div>
               </div>
             </div>
