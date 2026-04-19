@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", serif;
+  
+  --color-legal-navy: #0f172a;
+  --color-legal-gold: #947133;
+  --color-legal-cream: #f8fafc;
+  --color-legal-slate: #334155;
+}
+
+@layer base {
+  body {
+    @apply font-sans text-legal-slate bg-white antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif text-legal-navy;
+  }
+}
+
+.section-padding {
+  @apply py-24 px-6 md:px-12 lg:px-24;
+}
+
+.legal-accent-line {
+  @apply w-12 h-0.5 bg-legal-gold my-6;
+}
+
+.nav-link {
+  @apply text-sm uppercase tracking-widest text-legal-navy/70 hover:text-legal-gold transition-colors duration-300;
+}
+
+.glass-nav {
+  @apply bg-white/80 backdrop-blur-md border-b border-legal-navy/5;
+}
+
+/* Custom scrollbar for better feel */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-legal-cream;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-legal-navy/10 rounded-full;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-legal-gold/20;
+}
